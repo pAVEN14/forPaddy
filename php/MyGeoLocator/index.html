@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+    </head>
+    <body class="inputs">
+        <h1>Geolocator</h1>
+        <form id="form">
+            <p>
+                <input type="text" name="latitude" placeholder="Enter latitude">
+            </p>
+            <p>
+                <input type="text" name="longitude" placeholder="Enter longitude">
+            </p>
+			 <p>
+                <input type="text" id="checked" name="checked" placeholder="0-Opencage | 1-cURL">
+            </p>
+            <p>
+				<input type="submit" name="Submit">
+            </p>
+        </form>
+		
+		<div id='response'></div>
+		
+		<script>
+		  $(document).ready(function() {
+
+
+			  $('#form').submit(function(){
+			  
+			  $('#response').html("<b>Loading response...</b>");
+
+				$.ajax({
+					type: "POST",
+					url: "/Geolocation.php",
+					data: $(this).serialize(),
+				})
+				
+				.done(function(data){
+					if (data){
+						$('#response').html(data); 
+					}
+				})
+				.fail(function() {
+					alert( "Posting failed!" ); 
+				});
+				return false;
+
+			  });
+		  });
+		</script>
+    </body>
+</html>
