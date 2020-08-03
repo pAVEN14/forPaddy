@@ -1,0 +1,157 @@
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Geolocation Website</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="javascript.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon&display=swap" rel="stylesheet">
+  </head>
+  <body>
+	<form id="form" onsubmit="return false;">
+	<div class="container">
+		<div class="row">
+			<div class="col"></div>
+			<div class="col"></div>
+			<div class="col">
+				<input class="search" id="search" type="text" name="search" placeholder="Enter location here"><input id="submit" type="submit" value="Search">
+			</div>
+			<div class="col"></div>
+			<div class="col"></div>
+		</div>
+	</div>
+	</form> 
+	
+<div id="globalresponse">
+
+<div id="mapid"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<p class="searchInfoCount">Country: <span id='response'></span></p>
+			</div>
+			<div class="col-sm">
+				<p class="searchInfoCurr">Currency: <span id='response4'></span></p>
+			</div>
+			<div class="col-sm">
+				<p class="searchInfoWeath">Weather: <span id='response5'></span></p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<p class="searchInfoContCap">Continent/Capital: <span id='response2'></span></p>
+			</div>
+			<div class="col-sm">
+				<p class="searchInfoPop">Population: <span id='response3'></span></p>
+			</div>
+			<div class="col-sm">
+				<p class="searchInfoTemp">Temperature: <span id='response6'></span></p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<p class="searchInfoSum">Summary: <span id='response7'></span></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script> 
+		$(document).ready(function() {
+		
+				$('#form').submit(function(){
+			  
+				$('#response').html("<b>Loading response...</b>");
+				$('#response2').html("");
+				$('#response3').html("");
+				$('#response4').html("");
+				$('#response5').html("");
+				$('#response6').html("");
+				$('#response7').html("");
+
+				$.ajax({
+					type: "POST",
+					url: "/Geolocation.php",
+					data: $(this).serialize(),
+				})
+				
+				.done(function(data){
+					if (data){
+						if ( !document.getElementById("search").value ) { 
+							alert("Empty search");
+							$('#response').html("No responses!");							
+						} else {
+							alert(data);
+							try {
+								locationdata = JSON.parse(data);
+								editMap(locationdata);
+								$('#response').html(locationdata[0]['country']);
+								$('#response2').html(locationdata[0]['timezone']);
+								$('#response3').html(locationdata[2]['population']);
+								$('#response4').html(locationdata[0]['currency']);
+								$('#response5').html(locationdata[1]['weather']['main']);
+								$('#response6').html(locationdata[1]['temp']);
+								$('#response7').html(locationdata[0]['summary']);
+							}
+							catch(err) {
+								$('#response').html("API timed out! Please retry!");	
+							}
+						}	
+					}
+				})
+				.fail(function() {
+					alert( "Error! (Never got one before this way)" ); 
+				});
+				return false;
+
+			  });
+		  });
+</script>
+<script>
+	initMap()
+	/*
+	function showLocation(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        mymap.setView(new L.LatLng(lat, lng), 11, { animation: true });
+    }
+
+    function errorHandler(err) {
+        if(err.code == 1) {
+			alert("Error: Access is denied (User geolocation)!");
+        } else if( err.code == 2) {
+            alert("Error: Position is unavailable!");
+        }
+    }
+
+	navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
+	*/
+		
+</script>
+
+<!--footer-->
+    <footer class="footer">
+        <p id="email">nilsson.fredrikalexander@gmail.com</p>
+
+    </footer>
+
+
+  </body>
+</html>

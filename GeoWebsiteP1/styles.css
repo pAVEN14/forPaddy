@@ -1,160 +1,183 @@
 body {
-    margin: 0;
+    margin-top: 10px;
     padding: 0;
-}
-
-#clock {
-    width: 100%;
-    position: absolute;
-    font-size: 9vw;
-    color: white;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 10%;
+    background: #031321;
 }
 
 #mapid { 
-    padding: 60px;
-    margin: 60px;
-    height: 180px; 
+    display: flex;
+    height: 400px; 
     color: white;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    margin: 40px;
+    padding: 0;
+    font-family: 'IM Fell French Canon', serif;
 }
+
+#response {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    background: #031321;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response2 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response3 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response4 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    background: #031321;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response5 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    background: #031321;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response6 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    background: #031321;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+#response7 {
+    position: relative;
+    left: 10px;
+    font-size: large;
+    color: #2196f3;
+    background: #031321;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+
+.searchInfoCount {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoContCap {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoPop {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoCurr {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoWeath {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoTemp {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+.searchInfoSum {
+    position: relative;
+    bottom: 25px;
+    left: 480px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+
+
+
+
 
 ::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
 }
 
-.bodydiv {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #031321;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.latitude{
+.search{
+    position: flex;
     border-width:0px;
     border:none;
     margin: 0;
     padding: 0;
     color: #2196f3;
     background: #031321;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.longitude {
-    border-width:0px;
-    border:none;
-    margin: 0;
-    padding: 0;
-    color: #2196f3;
-    background: #031321;
-    font-family: 'Times New Roman', Times, serif;
+	text-align: center; 
+    font-family: 'IM Fell French Canon', serif;
 }
 
 #submit {
+    display: flex;
+	justify-content: center;
+	align-items: center;
     border-width:0px;
     border:none;
-    margin: 0;
+    margin: auto;
     padding: 0;
     color: #2196f3;
     background: #031321;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-a {
-    position: relative;
-    display: inline-block;
-    padding: 15px, 30px;
-    color: #2196f3;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 24px;
-    overflow: hidden;
-    transition: 0.2s;
-}
-a:hover {
-    color: #255784;
-    background: #2196f3;
-    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
-    transition-delay: 1s;
-}
-
-a span {
-    position: absolute;
-    display: block;
-}
-
-a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #2196f3);
-}
-
-a:hover span:nth-child(1) {
-    left: 100%;
-    transition: 1s;
-
-}
-
-a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #2196f3);
-}
-
-a:hover span:nth-child(3) {
-    right: 100%;
-    transition: 1s;
-    transition-delay: 0.5s;
-}
-
-a span:nth-child(2) {
-    top: -100;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #2196f3);
-}
-
-a:hover span:nth-child(2) {
-    top: 100%;
-    transition: 1s;
-    transition-delay: 0.05s;
-}
-
-a span:nth-child(4) {
-    bottom: -100;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #2196f3);
-}
-
-a:hover span:nth-child(4) {
-    bottom: 100%;
-    transition: 1s;
-    transition-delay: 0.45s;
+    font-family: 'IM Fell French Canon', serif;
 }
 
 .footer {
     margin: 0;
-    padding: 0;
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     color: #2196f3;
     background: #031321;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'IM Fell French Canon', serif;
 }
