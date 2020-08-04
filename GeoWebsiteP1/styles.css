@@ -74,7 +74,6 @@ body {
     font-family: 'IM Fell French Canon', serif;
 } 
 
-
 .searchInfoCount {
     bottom: 30px;
     position: relative;
@@ -84,7 +83,11 @@ body {
     font-family: 'IM Fell French Canon', serif;
 } 
 
+<<<<<<< HEAD
+.searchInfoCount {
+=======
 .searchInfoContCap {
+>>>>>>> 17b220ad1a220921b9ac3eba1e3395144d222e70
     bottom: 30px;
     position: relative;
     left: 100px;
@@ -93,7 +96,11 @@ body {
     font-family: 'IM Fell French Canon', serif;
 } 
 
+<<<<<<< HEAD
+.searchInfoContCap {
+=======
 .searchInfoPop {
+>>>>>>> 17b220ad1a220921b9ac3eba1e3395144d222e70
     bottom: 30px;
     position: relative;
     left: 100px;
@@ -102,7 +109,11 @@ body {
     font-family: 'IM Fell French Canon', serif;
 } 
 
+<<<<<<< HEAD
+.searchInfoPop {
+=======
 .searchInfoCurr {
+>>>>>>> 17b220ad1a220921b9ac3eba1e3395144d222e70
     bottom: 30px;
     position: relative;
     left: 100px;
@@ -110,6 +121,20 @@ body {
     color: white;
     font-family: 'IM Fell French Canon', serif;
 } 
+
+<<<<<<< HEAD
+.searchInfoCurr {
+=======
+.searchInfoWeath {
+>>>>>>> 17b220ad1a220921b9ac3eba1e3395144d222e70
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+    font-size: large;
+    color: white;
+    font-family: 'IM Fell French Canon', serif;
+} 
+<<<<<<< HEAD
 
 .searchInfoWeath {
     bottom: 30px;
@@ -133,6 +158,13 @@ body {
     position: relative;
     bottom: 25px;
     left: 480px;
+=======
+
+.searchInfoTemp {
+    bottom: 30px;
+    position: relative;
+    left: 100px;
+>>>>>>> 17b220ad1a220921b9ac3eba1e3395144d222e70
     font-size: large;
     color: white;
     font-family: 'IM Fell French Canon', serif;

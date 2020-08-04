@@ -69,6 +69,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 
@@ -108,7 +109,9 @@
 								$('#response4').html(locationdata[0]['currency']);
 								$('#response5').html(locationdata[1]['weather']['main']);
 								$('#response6').html(locationdata[1]['temp']);
+
 								$('#response7').html(locationdata[0]['summary']);
+
 							}
 							catch(err) {
 								$('#response').html("API timed out! Please retry!");	

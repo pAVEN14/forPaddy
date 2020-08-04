@@ -101,6 +101,7 @@ if (empty($_POST["search"])) {
         array_push($searchResult, $temp);
 
     }
+
 	
 echo json_encode($searchResult, JSON_UNESCAPED_UNICODE);
 
